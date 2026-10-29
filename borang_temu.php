@@ -78,9 +78,28 @@ input [type=submit]{
                     <td valign="top">:</td>
                     <td>
                         <?php
-                        $sql= "SELECT * FROM "
+                        $sql= "SELECT * FROM servis ORDER BY nama_servis";
+                        $data= mysqli_query($conn,$sql);
+
+                        if ($data && mysqli_num_rows($data)>0){
+                            while ($row =mysqli_fetch_assoc($data)){
+                                echo '<label class="item">';
+                                echo '<input type="checkbox" name="servis[]" 
+                                            value ="'.$row['kod_servis'].'">';
+                                echo '<span>';
+                                echo $row['nama_servis'].'(RM'.$row['harga_servis'].')';
+                                echo '</span>';
+                                echo '</label>';
+                            }
+                        }else { echo 'Tiada rekod'; }
+                        ?>
                     </td>
+                </tr>
+                <tr>
+                    <td colspan="3" align="center"><input type="submit" value="HANTAR"></td>
                 </tr>
             </table>
         </form>
+</div>
 </body>
+<?php include "footer.php"; ?>
