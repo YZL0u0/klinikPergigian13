@@ -51,7 +51,7 @@ include "db_conn.php"
             harga_servis='".$_POST["harga"]."'
             WHERE kod_servis='$kod'";
         if (mysqli_query($conn,$query)){
-            echo '<script>alert("Berjaya Kemaskini Perkhidmatan!");
+            echo '<script>alert("Berjaya Kemaskini Servis!");
                 window.location.href="servis.php";
                 </script>';
         }else{
@@ -64,16 +64,16 @@ include "db_conn.php"
     ?>
 
     <div id="borang">
-        <h2>Borang Kemaskini Perkhidmatan</h2>
+        <h2>Borang Kemaskini Servis</h2>
         <form action="edit_servis.php?kod=<?php echo $kod; ?>" method="post">
             <table>
                 <tr>
-                    <td>Kod Perkhidmatan</td>
+                    <td>Kod Servis</td>
                     <td>:</td>
                 <td><?php echo $row['kod_servis'];?></td>
                 </tr>
                 <tr>
-                    <td>Nama Perkhidmatan</td>
+                    <td>Nama Servis</td>
                     <td>:</td>
                     <td><input type="text" name="nama" value="<?php echo $row['nama_servis'];?>" required></td>
                 </tr>

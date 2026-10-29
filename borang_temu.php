@@ -74,7 +74,7 @@ input [type=submit]{
                     </select></td>
                 </tr>
                 <tr>
-                    <td valign="top">Perkhidmatan</td>
+                    <td valign="top">Servis</td>
                     <td valign="top">:</td>
                     <td>
                         <?php

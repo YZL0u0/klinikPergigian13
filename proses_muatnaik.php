@@ -18,7 +18,7 @@ if ($ext=="txt"){
 
         if(mysqli_num_rows($result)==1){
             fclose($file_open);
-            echo '<script>alert("Kod perkhidmatan '.$kod.'sudah wujud!");
+            echo '<script>alert("Kod servis'.$kod.'sudah wujud!");
             window.location="servis.php";
             </script>';
             exit();
@@ -29,7 +29,7 @@ if ($ext=="txt"){
                 mysqli_query($conn,$sql);
     }
     fclose($file_open);
-    echo '<script>alert("Perkhidmatan baharu berjaya disimpan.");
+    echo '<script>alert("Servis baharu berjaya disimpan.");
     window.location="servis.php";
     </script>';
 }

@@ -73,7 +73,7 @@
                 <h3 id="teks-log">Daftar Akaun Baharu</h3>
                 <form action="proses_signup.php" method="POST">
                     <div id="kotak-input">
-                        <input type="tel" name="no_tel" placeholder="No Telefon (01X-XXXXXXX)" 
+                        <input type="tel" name="no_tel" placeholder="No Telefon (012-XXXXXXX)" 
                         pattern="[0-9]{3}-[0-9]{7,8}" title="012-3456789 atau 012-34567890" required>
                         <input type ="text" name="nama" placeholder="Nama Penuh" required>
                     </div>

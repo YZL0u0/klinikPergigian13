@@ -37,11 +37,11 @@ include "db_conn.php";
     }
 </style>
 <main>
-    <div id ="tajuk">Senarai Perkhidmatan<br><br>
+    <div id ="tajuk">Senarai Servis<br><br>
     <?php
     if ($_SESSION['peranan']=="admin"){ ?>
     <button onclick="window.location.href='borang_servis.php'">
-        Tambah Perkhidmatan
+        Tambah Servis
     </button> <?php } ?>
 </div>
 <?php
@@ -81,7 +81,7 @@ if (mysqli_num_rows($result)> 0){
                             <img src='images/edit.png'width='23' height='23'title ='Edit'>
                         </a>
                         <a href ="padam_servis.php?kod=<?php echo $row['kod_servis']; ?>">
-                            onclick="return confirm('Adakah anda pasti mahu memadam perkhidmatan ini?');">
+                            onclick="return confirm('Adakah anda pasti mahu memadam servis ini?');">
                             <img src='images/delete.png' width='23' height ='23' title='Padam'>
                         </a>
                     </td> 
@@ -99,7 +99,7 @@ else {echo "<center>Tiada rekod</center>";}
 <?php
 if ($_SESSION['peranan']=="admin"){
     ?>
-    <div id="tajuk">Muat Naik Data Perkhidmatan</div>
+    <div id="tajuk">Muat Naik Data Servis</div>
     <p><form action="proses_muatnaik.php method="POST" enctype="multipart/form-data">
 <center>
     Pilih fail untuk dimuat naik (Fail .txt sahaja):

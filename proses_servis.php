@@ -9,7 +9,7 @@ $semak= "SELECT * FROM servis WHERE kod_servis ='$kod'";
 $data= mysqli_query($conn,$semak);
 
 if (mysqli_num_rows($data)==1){
-echo '<script>alert("Kod perkhidmatan sudah wujud");window.location="borang_servis.php";
+echo '<script>alert("Kod servis sudah wujud");window.location="borang_servis.php";
 </script>';
 }else{
     $sql ="INSERT INTO servis
@@ -17,7 +17,7 @@ echo '<script>alert("Kod perkhidmatan sudah wujud");window.location="borang_serv
     ('$kod', '$nama','$harga')";
     mysqli_query($conn,$sql);
 
-    echo '<script>alert("Perkhidmatan baharu berjaya disimpan.");
+    echo '<script>alert("Servis baharu berjaya disimpan.");
     window.location="servis.php"; </script>';
 }
 

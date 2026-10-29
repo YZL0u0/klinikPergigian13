@@ -26,13 +26,13 @@
         <?php
         if($_SESSION['peranan']=="admin"){ ?>
              <a href="utama.php">Utama</a>|
-             <a href="servis.php">Perkhidmatan</a>|
+             <a href="servis.php">Servis</a>|
              <a href="senarai.php">Senarai Janji Temu</a>
              <?php
         }
         else{ ?>
              <a href="utama.php">Utama</a>|
-             <a href="servis.php">Perkhidmatan</a>|
+             <a href="servis.php">Servis</a>|
              <a href="borang_temu.php">Borang Janji Temu</a>|
              <a href="senarai.php">Senarai Janji Temu</a>
         <?php } ?>

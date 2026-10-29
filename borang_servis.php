@@ -43,7 +43,7 @@ include "nav.php";
 </style>
 <body>
     <div id="borang">
-        <h2>Borang Tambah Perkhidmatan</h2>
+        <h2>Borang Tambah Servis</h2>
         <form action="proses_servis.php" method="post">
             <table>
                 <tr>

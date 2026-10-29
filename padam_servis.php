@@ -10,7 +10,7 @@ if (mysqli_query($conn,$sql)){
             NOT IN (SELECT no_janjitemu FROM janjitemu_servis)";
     mysqli_query ($conn, $sql);
 
-    echo '<script>alert("Perkhidmatan berjaya dipadam!");
+    echo '<script>alert("Servis berjaya dipadam!");
             window.location.href="servis.php";
         </script>';
 }
