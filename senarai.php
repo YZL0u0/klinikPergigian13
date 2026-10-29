@@ -54,7 +54,7 @@ include "db_conn.php";
             janjitemu.tarikh_temu,
             janjitemu.masa_temu,
             janjitemu.no_telefon,
-            pelanggan.nama_pelanggan,
+            pesakit.nama_pesakit,
             GROUP_CONCAT(servis.harga_servis SEPERATOR ', ') AS harga
             GROUP_CONCAT(servis.nama_servis SEPERATOR ', ') AS servis
           FROM janjitemu
@@ -63,10 +63,10 @@ include "db_conn.php";
           JOIN servis
                 ON janjitemu_servis.kod_servis = servis.kod_servis
           JOIN pelanggan
-                ON janjitemu.no_telefon = pelannggan.no_telefon";
+                ON janjitemu.no_telefon = pesakit.no_telefon";
     
     $where ="";
-    if ($_SESSION['peranan']=="pelanggan"){
+    if ($_SESSION['peranan']=="pesakit"){
         $where=" WHERE janjitemu.no_telefon='".$_SESSION['notel']."'";
     }
     if (isset($_POST['cari'])&& !empty($_POST['carian'])){
@@ -85,6 +85,40 @@ include "db_conn.php";
     $sql .=$where;
 
     $sql .=" GROUP BY janjitemu.no_janjitemu
-             ORDER BY 
+             ORDER BY tarikh_temu";
+    $result =mysqli_query($conn,$sql);
 
+    if (mysqli_num_rows($result)>0){
+        ?>
+        <br>
+        <table>
+            <tr>
+                <th width='80'>No. Janji Temu</th>
+                <th width='100'>Tarikh / Masa</th>
+                <th width='250'>Servis</th>
+                <th width='100'>Harga</th>
+
+                <?php if ($_SESSION['peranan']=="admin"){
+                    echo "<th>Nama Pesakit</th>";
+                } ?>
+                <th>Tindakan</th>
+            </tr>
+            <?php
+                while ($row=mysqli_fetch_assoc($result)){
+                    $no_janjitemu = "JT".str_pad($row['no_janjitemu'],3,"0",STR_PAD_LEFT)
+                    ?>
+                    <tr>
+                        <td><?php echo $no_janjitemu; ?></td>
+                        <td><?php echo $row['tarikh_temu']." ".$row['masa_temu']; ?></td>
+                        <td><?php echo $row['servis']; ?></td>
+                        <td><?php echo $row['harga'];?></td>
+
+                        <?php
+                        if ($_SESSION['peranan']=="admin"){
+                            echo "<td>".$row['nama_pesakit']."</td>";
+                        } ?>
+                    </tr>
+                }
+        </table>
+    }
 </main>
