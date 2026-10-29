@@ -5,12 +5,12 @@ include "nav.php";
 <style>
     body{
         font: 16px "Segoe UI";
-        background: #f4effa;
+        background: white;
     }
     #borang{
         width: 520px;
         padding: 35px 40px;
-        background: white;
+        background: #f5f5f5;
         border-radius: 15px;
         margin: 40px auto;
         box-shadow: 0 10px 25px rgba (0,0,0,0.08);
@@ -59,7 +59,7 @@ include "nav.php";
                 <tr>
                     <td>Harga (RM)</td>
                     <td>:</td>
-                    <td><input type="number" name="harga" step="0.01" min="0.1" required></td>
+                    <td><input type="text" name="harga" required></td>
                 </tr>
                 <tr>
                     <td colspan="3" align="center"><input type="submit" value="SIMPAN"></td>

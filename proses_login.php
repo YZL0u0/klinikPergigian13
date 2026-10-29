@@ -10,7 +10,7 @@ if (isset($_POST['btnLogA'])){
         $_SESSION['login']=$logid;
         $_SESSION['nama']="Admin";
     echo '<script>alert("Selamat datang Admin");
-             window.location.href="log_admin.php";
+             window.location.href="utama.php";
         </script>';
     exit();
     }

@@ -5,7 +5,7 @@ include "db_conn.php";
 ?>
 <style>
     body {
-        background: #f4effa;
+        background-color: white;
     }
     main{
         max-width: 900px;
