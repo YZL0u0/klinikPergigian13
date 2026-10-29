@@ -15,4 +15,11 @@ echo '<script>alert("Kod perkhidmatan sudah wujud");window.location="borang_serv
     $sql ="INSERT INTO servis
     (kod_servis, nama_servis, harga_servis) VALUES
     ('$kod', '$nama','$harga')";
+    mysqli_query($conn,$sql);
+
+    echo '<script>alert("Perkhidmatan baharu berjaya disimpan.");
+    window.location="servis.php"; </script>';
 }
+
+mysqli_close($conn);
+?>
