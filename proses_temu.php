@@ -27,7 +27,7 @@ else{
         $sql_servis = "INSERT INTO janjitemu_servis
                         (no_janjitemu,kod_servis) VALUES 
                         ('$no_janjitemu','$kod_servis')";
-        mysqli_query($conn,$sql_servis        
+        mysqli_query($conn,$sql_servis);   
     }
     $no_janjitemu = "JT".str_pad($no_janjitemu,3,"0",STR_PAD_LEFT);
     echo '<script>alert("Janji temu berjaya disimpan.\nNo Janji Temu : '.$no_janjitemu.'");
