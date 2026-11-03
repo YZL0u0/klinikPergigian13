@@ -20,7 +20,7 @@ include "db_conn.php";
     table {
         width: 100%;
         border-collapse: collapse;
-        text-align: left
+        text-align: left;
         background-color: #f5f5f5;
     }
     th, td{
@@ -117,8 +117,23 @@ include "db_conn.php";
                         if ($_SESSION['peranan']=="admin"){
                             echo "<td>".$row['nama_pesakit']."</td>";
                         } ?>
+                        <td style="text-align: center;">
+                            <a href="padam_temu.php?no=<?php echo $row['no_janjitemu']; ?>"
+                            onclick="return confirm('Adakah anda pasti mahu memadam janji temu ini?');">
+                            <img src='images/delete.png' width='23' height='23' title='Padam'>
+                        </a>
+                        </td>
                     </tr>
-                }
+                    <?php } ?>
         </table>
+        <p align="center"><button onclick="window.print()">Cetak</button></p>
+        <?php 
     }
+    else { echo "<center>Tiada rekod</center>";}
+    ?>
 </main>
+
+<?php
+include "footer.php";
+mysqli_close($conn);
+?>
