@@ -4,7 +4,25 @@ include "nav.php";
 ?>
 <head>
     <style>
-        #utama{
+    body {
+        background-color: white;
+        color: black;
+    }
+
+    body.dark {
+        background-color: #171923;
+        color: white;
+    }
+
+    .card {
+        background-color: #f5f5f5;
+        padding: 20px;
+    }
+
+    body.dark .card {
+        background-color: #242938;
+    }
+    #utama{
             flex: 1;
             text-align: center;
             padding: 50px 20px;
@@ -32,6 +50,23 @@ include "nav.php";
     </style>
     </head>
     <body>
+        <script>
+    function toggleDarkMode() {
+        document.body.classList.toggle("dark");
+
+        // Save the user's preference
+        if (document.body.classList.contains("dark")) {
+            localStorage.setItem("theme", "dark");
+        } else {
+            localStorage.setItem("theme", "light");
+        }
+    }
+
+    // Load saved preference
+    if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark");
+    }
+</script>
         <main id="utama">
             <img src="images/logo.png" width="300" height="200">
             <h2 id="tajuk">Selamat Datang ke <br>Sistem Janji Temu </h2>

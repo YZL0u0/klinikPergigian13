@@ -4,8 +4,6 @@ include "session.php";
 <title>.:::Klinik Pergigian 13:::.</title>
 <style>
     *{box-sizing: border-box;}
-    body{margin: 0;}
-
     @font-face {
     font-family: 'Porcelain';
     src: url('fonts/Porcelain.woff2') format('woff2'),
@@ -41,6 +39,9 @@ include "session.php";
 <header id="top-bar">
     <h1 id="logo-teks">KLINIK PERGIGIAN 13</h1>
     <div id="nama">
+        <button onclick="toggleDarkMode()">
+    🌙 Dark Mode
+</button>
         <?php echo $_SESSION['nama'];?>
         <a href ="logout.php" title="Log Keluar">
             <img src="images/logout.png" width="35" height ="35">

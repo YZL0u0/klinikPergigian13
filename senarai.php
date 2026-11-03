@@ -55,14 +55,14 @@ include "db_conn.php";
             janjitemu.masa_temu,
             janjitemu.no_telefon,
             pesakit.nama_pesakit,
-            GROUP_CONCAT(servis.harga_servis SEPERATOR ', ') AS harga
-            GROUP_CONCAT(servis.nama_servis SEPERATOR ', ') AS servis
+            GROUP_CONCAT(servis.harga_servis SEPARATOR '<br>') AS harga_servis,
+            GROUP_CONCAT(servis.nama_servis SEPARATOR '<br>') AS servis
           FROM janjitemu
           JOIN janjitemu_servis
                 ON janjitemu.no_janjitemu = janjitemu_servis.no_janjitemu
           JOIN servis
                 ON janjitemu_servis.kod_servis = servis.kod_servis
-          JOIN pelanggan
+          JOIN pesakit
                 ON janjitemu.no_telefon = pesakit.no_telefon";
     
     $where ="";
@@ -85,7 +85,7 @@ include "db_conn.php";
     $sql .=$where;
 
     $sql .=" GROUP BY janjitemu.no_janjitemu
-             ORDER BY tarikh_temu";
+             ORDER BY janjitemu.tarikh_temu";
     $result =mysqli_query($conn,$sql);
 
     if (mysqli_num_rows($result)>0){
@@ -111,14 +111,14 @@ include "db_conn.php";
                         <td><?php echo $no_janjitemu; ?></td>
                         <td><?php echo $row['tarikh_temu']." ".$row['masa_temu']; ?></td>
                         <td><?php echo $row['servis']; ?></td>
-                        <td><?php echo $row['harga'];?></td>
+                        <td><?php echo $row['harga_servis'];?></td>
 
                         <?php
                         if ($_SESSION['peranan']=="admin"){
                             echo "<td>".$row['nama_pesakit']."</td>";
                         } ?>
                         <td style="text-align: center;">
-                            <a href="padam_temu.php?no=<?php echo $row['no_janjitemu']; ?>"
+                            <a href="padam.php?no=<?php echo $row['no_janjitemu']; ?>"
                             onclick="return confirm('Adakah anda pasti mahu memadam janji temu ini?');">
                             <img src='images/delete.png' width='23' height='23' title='Padam'>
                         </a>

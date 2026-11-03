@@ -80,7 +80,7 @@ if (mysqli_num_rows($result)> 0){
                         <a href="edit_servis.php?kod=<?php echo $row['kod_servis']; ?>">
                             <img src='images/edit.png'width='23' height='23'title ='Edit'>
                         </a>
-                        <a href ="padam_servis.php?kod=<?php echo $row['kod_servis']; ?>">
+                        <a href ="padam_servis.php?kod=<?php echo $row['kod_servis']; ?>"
                             onclick="return confirm('Adakah anda pasti mahu memadam servis ini?');">
                             <img src='images/delete.png' width='23' height ='23' title='Padam'>
                         </a>
@@ -100,7 +100,7 @@ else {echo "<center>Tiada rekod</center>";}
 if ($_SESSION['peranan']=="admin"){
     ?>
     <div id="tajuk">Muat Naik Data Servis</div>
-    <p><form action="proses_muatnaik.php method="POST" enctype="multipart/form-data">
+    <p><form action="proses_muatnaik.php" method="POST" enctype="multipart/form-data">
 <center>
     Pilih fail untuk dimuat naik (Fail .txt sahaja):
     <input type="file" name="file_txt" accept=".txt" required>

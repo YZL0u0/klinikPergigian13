@@ -63,14 +63,14 @@ input [type=submit]{
                     <td>:</td>
                     <td><select name="masa" required>
                         <option value="">-- Pilih Masa --</option>
-                        <option>10:00 am</option>
-                        <option>10:30 am</option>
-                        <option>11:00 am</option>
-                        <option>02:00 pm</option>
-                        <option>02:30 pm</option>
-                        <option>03:00 pm</option>
-                        <option>03:30 pm</option>
-                        <option>04:00 pm</option>
+                        <option>10:00</option>
+                        <option>10:30</option>
+                        <option>11:00</option>
+                        <option>14:00</option>
+                        <option>14:30</option>
+                        <option>15:00</option>
+                        <option>15:30</option>
+                        <option>16:00</option>
                     </select></td>
                 </tr>
                 <tr>
