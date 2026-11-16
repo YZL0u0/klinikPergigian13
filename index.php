@@ -74,7 +74,7 @@
             <a href="log_admin.php" id ="btn-admin">
                 <img src="images/admin.png" width="50" height ="57" title="Log Masuk Admin">
             </a>
-            <img src="images/logo.png" width="300" height="200">
+            <img src="images/Logo.png" width="300" height="200">
             <h2 id="teks-tajuk">Sistem Janji Temu</h2>
             <div id="kotak-login">
                 <h3 id="teks-log">Log Masuk Pelanggan</h3>

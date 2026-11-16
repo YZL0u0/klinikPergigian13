@@ -7,64 +7,12 @@ include "nav.php";
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:ital@1&display=swap" rel="stylesheet">
 <style>
-    :root {
-        --header: #54CBB9;
-        --navbar: #263F55;
-        --background: #F6FAFC;
-        --card: #FFFFFF;
-        --primary: #247BA0;
-        --text: #263746;
-        --secondary-text: #263746
-        --footer:  #D9F5EF;
-        --border: #263746;
-    }
-
-    /* DARK MODE */
-    body.dark-mode {
-        --header: #234C5D;
-        --navbar: #152536;
-        --background: #101C2B;
-        --card: #1B2A3B;
-        --primary: #247BA0;
-        --text: #EAF2F8;
-        --secondary-text: #A7B6C7;
-        --footer: #1D353F;
-        --border: #34465A;
-    }
-    body {
-    background-color: var(--background);
-    color: var(--text);
-    transition: background-color 0.3s, color 0.3s;
-    }
-    header {
-    background-color: var(--header);
-}
-
-    nav {
-    background-color: var(--navbar);
-}
-
-.card {
-    background-color: var(--card);
-    color: var(--text);
-    border: 1px solid var(--border);
-}
-
-footer {
-    background-color: var(--footer);
-    color: var(--text);
-}
-
-button {
-    background-color: var(--primary);
-    color: white;
-    }
     #utama{
             flex: 1;
             text-align: center;
             padding: 50px 20px;
             font-weight: bold;
-            color: #263746;
+            color: text;
         }
      .lilita-one-regular {
             font-family: "Lilita One", sans-serif;
@@ -76,54 +24,41 @@ button {
             font-weight: 400;
             font-style: italic;
     }
-        #btn-temu{
+    #btn-temu{
+        background-color: #247BA0;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 35px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    letter-spacing: 0.01em;
+}
+    #btn-temu:hover{
+        background-color: #16658a;
+    transform: translateY(-2px);
+    }
+    body.dark-mode .btn-temu :hover {
+    background-color: #318FB8;
+}
+ /*       #btn-temu{
             padding: 13px 40px;
             font: bold 15px Arial;
-            color: #263746;
-            background: white;
-            border: 3px solid #263746;
-            border-radius: 8px;
+            color: var(--text);
+            background: var(--secondary-text);
+            border: 3px solid var(--border);
+            border-radius: 12px;
             text-decoration: none;
         }
         #btn-temu:hover{
             background-color:#D9F5EF;
             color: #367FC4;
-        }
+        }*/
     </style>
     </head>
-    <body>
-        <script>
-const toggleButton = document.getElementById("themeToggle");
-
-// Load previously saved theme
-let currentTheme = localStorage.getItem("theme");
-
-if (currentTheme === "dark") {
-    document.body.classList.add("dark-mode");
-    toggleButton.textContent = "☀️ Light Mode";
-}
-
-// Switch theme when clicked
-toggleButton.addEventListener("click", function() {
-
-    document.body.classList.toggle("dark-mode");
-
-    if (document.body.classList.contains("dark-mode")) {
-
-        localStorage.setItem("theme", "dark");
-        toggleButton.textContent = "☀️ Light Mode";
-
-    } else {
-
-        localStorage.setItem("theme", "light");
-        toggleButton.textContent = "🌙 Dark Mode";
-
-    }
-
-});
-</script>
         <main id="utama">
-            <img src="images/logo.png" width="300" height="200">
+            <img src="images/Logo.png" width="300" height="200">
             <h2 class="poppins-regular-italic">Selamat Datang ke <br>Sistem Janji Temu </h2>
 
             <?php

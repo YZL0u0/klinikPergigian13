@@ -8,7 +8,7 @@ $ext= strtolower(pathinfo($_FILES["file_txt"]["name"],PATHINFO_EXTENSION));
 
 if ($ext=="txt"){
     $file_open=fopen($file,"r");
-    while(($data= fgetcsv($file_open,100,","))!==FALSE){
+    while(($data= fgetcsv($file_open,1000,","))!==FALSE){
         $kod=$data[0];
         $nama=$data[1];
         $harga=$data[2];

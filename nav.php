@@ -2,7 +2,7 @@
     #menu{
         text-align: center;
         padding: 1px 0;
-        background-color: #263F55;
+        background-color: navbar;
         font-family: Tahoma;
         font-size: 13 px;
         color:white;
@@ -38,35 +38,4 @@
         <?php } ?>
 </h3>
 </nav>
-<body>
-    <script>
-const toggleButton = document.getElementById("themeToggle");
 
-// Load previously saved theme
-let currentTheme = localStorage.getItem("theme");
-
-if (currentTheme === "dark") {
-    document.body.classList.add("dark-mode");
-    toggleButton.textContent = "☀️ Light Mode";
-}
-
-// Switch theme when clicked
-toggleButton.addEventListener("click", function() {
-
-    document.body.classList.toggle("dark-mode");
-
-    if (document.body.classList.contains("dark-mode")) {
-
-        localStorage.setItem("theme", "dark");
-        toggleButton.textContent = "☀️ Light Mode";
-
-    } else {
-
-        localStorage.setItem("theme", "light");
-        toggleButton.textContent = "🌙 Dark Mode";
-
-    }
-
-});
-</script>
-</body>

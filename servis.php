@@ -3,9 +3,19 @@ include "header.php";
 include "nav.php";
 include "db_conn.php";
 ?>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:ital@1&display=swap" rel="stylesheet">
+</head>
 <style>
+     .lilita-one-regular {
+            font-family: "Lilita One", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            letter-spacing: 0.01em;}
     body {
-        background-color: white;
+        background-color:var(--background);
     }
     main{
         max-width: 900px;
@@ -13,21 +23,22 @@ include "db_conn.php";
         padding: 20px;
     }
     #tajuk{
-        font: bold 25px "Segoe UI";
         text-align: center;
+        color: var(--text);
     }
     table{
         width: 100%;
         border-collapse: collapse;
         text-align: left;
-        background-color: white;
+        background-color: var(--background);
     }
     th, td{
-        border: 1px solid #c0c0c0;
+        border: 1px solid #0087F6;
         padding: 7px;
     }
     th{
-        background-color: #dcdcdc;
+        background-color: var(--secondary-text);
+        color: var(--navbar);
     }
     td:nth-child(1){
         text-align: center;
@@ -37,7 +48,7 @@ include "db_conn.php";
     }
 </style>
 <main>
-    <div id ="tajuk">Senarai Servis<br><br>
+    <div id ="tajuk" class="lilita-one-regular" style="font-size: 25px">Senarai Servis<br><br>
     <?php
     if ($_SESSION['peranan']=="admin"){ ?>
     <button onclick="window.location.href='borang_servis.php'">

@@ -8,29 +8,31 @@ include "session.php";
 <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:ital@1&display=swap" rel="stylesheet">
 </head>
 <style>
-    :root {
+     :root {
         --header: #54CBB9;
         --navbar: #263F55;
         --background: #F6FAFC;
         --card: #FFFFFF;
-        --primary: white;
+        --primary: #D9EDF5;
         --text: #263746;
-        --secondary-text: #263746
-        --footer:  #D9F5EF;
-        --border: #263746;
+        --secondary-text: #EAF2F8;
+        --footer:   #DDF4EF;
+        --border: #34465A;
+        --borang: #EAF2F8;
     }
 
     /* DARK MODE */
     body.dark-mode {
-        --header: #234C5D;
-        --navbar: #152536;
-        --background: #101C2B;
+        --header: #245467;
+        --navbar: #101C2B;
+        --background: #152536;
         --card: #1B2A3B;
         --primary: #247BA0;
         --text: #EAF2F8;
-        --secondary-text: #A7B6C7;
+        --secondary-text: #A7B6C7; /*#A7B6C7*/
         --footer: #1D353F;
-        --border: #34465A;
+        --border: #263746;
+        --borang: #1f3344;
     }
     body {
     background-color: var(--background);
@@ -58,9 +60,8 @@ footer {
 
 button {
     background-color: var(--primary);
-    color: white;
+    color: var(--text);
     }
-    *{box-sizing: border-box;}
     @font-face {
     font-family: 'Porcelain';
     src: url('fonts/Porcelain.woff2') format('woff2'),
@@ -70,16 +71,23 @@ button {
     }
      .lilita-one-regular {
             font-family: "Lilita One", sans-serif;
-            font-weight: 100;
+            font-weight: 400;
             font-style: normal;
             letter-spacing: 0.01em;
     }
+    @font-face {
+    font-family: 'Calibri';
+    src: url('fonts/Calibri.woff2') format('woff2'),
+         url('fonts/Calibri.ttf') format('truetype'); /* Fallback for older browsers */
+    font-weight: normal;
+    font-style: normal;
+}
     #top-bar{
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 15px 30px;
-        background-color: #54CBB9;
+        background-color: header;
     }
     #logo-teks{
         font-family: 'Porcelain';
@@ -92,11 +100,24 @@ button {
         display: flex;
         align-items: center;
         gap: 15px;
-        font-family: 'Calibri';
+        font-family: 'Calibri', sans-serif;
         font-size: 20px;
         color: white;
         font-style: italic;
     }
+    #themeToggle {
+    background: rgba(255,255,255,0.15);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 8px;
+    padding: 8px 14px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#themeToggle:hover {
+    background: rgba(255,255,255,0.3);
+}
 </style>
 <header id="top-bar">
     <h1 id="logo-teks">KLINIK PERGIGIAN 13</h1>

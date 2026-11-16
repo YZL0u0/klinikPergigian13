@@ -78,7 +78,7 @@ input [type=submit]{
                     <td valign="top">:</td>
                     <td>
                         <?php
-                        $sql= "SELECT * FROM servis ORDER BY nama_servis";
+                        $sql= "SELECT * FROM servis ORDER BY kod_servis";
                         $data= mysqli_query($conn,$sql);
 
                         if ($data && mysqli_num_rows($data)>0){
