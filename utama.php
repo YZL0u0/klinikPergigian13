@@ -3,43 +3,85 @@ include "header.php";
 include "nav.php";
 ?>
 <head>
-    <style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:ital@1&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --header: #54CBB9;
+        --navbar: #263F55;
+        --background: #F6FAFC;
+        --card: #FFFFFF;
+        --primary: #247BA0;
+        --text: #263746;
+        --secondary-text: #263746
+        --footer:  #D9F5EF;
+        --border: #263746;
+    }
+
+    /* DARK MODE */
+    body.dark-mode {
+        --header: #234C5D;
+        --navbar: #152536;
+        --background: #101C2B;
+        --card: #1B2A3B;
+        --primary: #247BA0;
+        --text: #EAF2F8;
+        --secondary-text: #A7B6C7;
+        --footer: #1D353F;
+        --border: #34465A;
+    }
     body {
-        background-color: white;
-        color: black;
+    background-color: var(--background);
+    color: var(--text);
+    transition: background-color 0.3s, color 0.3s;
     }
+    header {
+    background-color: var(--header);
+}
 
-    body.dark {
-        background-color: #171923;
-        color: white;
-    }
+    nav {
+    background-color: var(--navbar);
+}
 
-    .card {
-        background-color: #f5f5f5;
-        padding: 20px;
-    }
+.card {
+    background-color: var(--card);
+    color: var(--text);
+    border: 1px solid var(--border);
+}
 
-    body.dark .card {
-        background-color: #242938;
+footer {
+    background-color: var(--footer);
+    color: var(--text);
+}
+
+button {
+    background-color: var(--primary);
+    color: white;
     }
     #utama{
             flex: 1;
             text-align: center;
             padding: 50px 20px;
             font-weight: bold;
-            color: black;
+            color: #263746;
         }
-        #tajuk{
-            font-size: 30px;
-            font-family: Georgia;
+     .lilita-one-regular {
+            font-family: "Lilita One", sans-serif;
+            font-weight: 400;
             font-style: italic;
-        }
+    }
+     .poppins-regular-italic {
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            font-style: italic;
+    }
         #btn-temu{
             padding: 13px 40px;
             font: bold 15px Arial;
-            color: black;
+            color: #263746;
             background: white;
-            border: 3px solid black;
+            border: 3px solid #263746;
             border-radius: 8px;
             text-decoration: none;
         }
@@ -51,25 +93,38 @@ include "nav.php";
     </head>
     <body>
         <script>
-    function toggleDarkMode() {
-        document.body.classList.toggle("dark");
+const toggleButton = document.getElementById("themeToggle");
 
-        // Save the user's preference
-        if (document.body.classList.contains("dark")) {
-            localStorage.setItem("theme", "dark");
-        } else {
-            localStorage.setItem("theme", "light");
-        }
+// Load previously saved theme
+let currentTheme = localStorage.getItem("theme");
+
+if (currentTheme === "dark") {
+    document.body.classList.add("dark-mode");
+    toggleButton.textContent = "☀️ Light Mode";
+}
+
+// Switch theme when clicked
+toggleButton.addEventListener("click", function() {
+
+    document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+
+        localStorage.setItem("theme", "dark");
+        toggleButton.textContent = "☀️ Light Mode";
+
+    } else {
+
+        localStorage.setItem("theme", "light");
+        toggleButton.textContent = "🌙 Dark Mode";
+
     }
 
-    // Load saved preference
-    if (localStorage.getItem("theme") === "dark") {
-        document.body.classList.add("dark");
-    }
+});
 </script>
         <main id="utama">
             <img src="images/logo.png" width="300" height="200">
-            <h2 id="tajuk">Selamat Datang ke <br>Sistem Janji Temu </h2>
+            <h2 class="poppins-regular-italic">Selamat Datang ke <br>Sistem Janji Temu </h2>
 
             <?php
             if ($_SESSION['peranan']=="pesakit"){ ?>
