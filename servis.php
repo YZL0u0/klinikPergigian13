@@ -37,14 +37,15 @@ include "db_conn.php";
         padding: 7px;
     }
     th{
-        background-color: var(--secondary-text);
-        color: var(--navbar);
+        background-color: var(--borang);
+        color: var(--text);
     }
     td:nth-child(1){
         text-align: center;
     }
     input[type=file]{
-        background: white;
+        border: 1px solid var(--border1);
+        background: var(--background);
     }
 </style>
 <main>

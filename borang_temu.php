@@ -3,21 +3,31 @@ include "header.php";
 include "nav.php";
 include "db_conn.php";
 ?>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:ital@1&display=swap" rel="stylesheet">
+</head>
 <style>
+     .lilita-one-regular {
+            font-family: "Lilita One", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            letter-spacing: 0.01em;}
     body{
         font: 16px "Segoe UI";
-        background: white;
+        background: var(--background);
     }
     #borang{
         width: 520px;
         padding: 35px 40px;
-        background: #f5f5f5;
+        background: var(--borang);
         border-radius: 15px;
         margin: 40px auto;
         box-shadow: 0 10px 25px rgba (0,0,0,0.08);
     }
     h2{
-        color: black;
+        color: var(--text);
         text-align: center;
 }
 .item{
@@ -30,7 +40,7 @@ include "db_conn.php";
     margin-top: 5px;
 }
 table { margin: auto; }
-td {padding: 10px;}
+td {padding: 10px; color: var(--text);}
 
 input[type=date], select{
     width: 250px;
@@ -50,7 +60,7 @@ input [type=submit]{
 </style>
 <body>
     <div id="borang">
-        <h2>Borang Janji Temu</h2>
+        <h2 class="lilita-one-regular">Borang Janji Temu</h2>
         <form action="proses_temu.php" method="post">
             <table>
                 <tr>

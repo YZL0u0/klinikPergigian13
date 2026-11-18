@@ -36,8 +36,8 @@ include "db_conn.php";
         padding: 7px;
     }
     th{
-       background-color: var(--secondary-text);
-        color: var(--navbar);
+       background-color: var(--borang);
+        color: var(--text);
         text-align: center;
     }
     td:nth-child(1){

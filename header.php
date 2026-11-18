@@ -8,17 +8,19 @@ include "session.php";
 <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:ital@1&display=swap" rel="stylesheet">
 </head>
 <style>
+    *{ box-sizing: border-box; }
      :root {
         --header: #54CBB9;
         --navbar: #263F55;
         --background: #F6FAFC;
         --card: #FFFFFF;
-        --primary: #D9EDF5;
+        --primary: #ffffff;
         --text: #263746;
         --secondary-text: #EAF2F8;
         --footer:   #DDF4EF;
         --border: #34465A;
         --borang: #EAF2F8;
+        --border1: black;
     }
 
     /* DARK MODE */
@@ -27,19 +29,21 @@ include "session.php";
         --navbar: #101C2B;
         --background: #152536;
         --card: #1B2A3B;
-        --primary: #247BA0;
+        --primary: #ffffff;
         --text: #EAF2F8;
         --secondary-text: #A7B6C7; /*#A7B6C7*/
         --footer: #1D353F;
         --border: #263746;
         --borang: #1f3344;
-    }
+        --border1: white;
+    }    
     body {
+    margin: 0;
     background-color: var(--background);
     color: var(--text);
     transition: background-color 0.3s, color 0.3s;
     }
-    header {
+    header{
     background-color: var(--header);
 }
 
@@ -60,7 +64,7 @@ footer {
 
 button {
     background-color: var(--primary);
-    color: var(--text);
+    color: black;
     }
     @font-face {
     font-family: 'Porcelain';
@@ -120,14 +124,14 @@ button {
 }
 </style>
 <header id="top-bar">
-    <h1 id="logo-teks">KLINIK PERGIGIAN 13</h1>
-    <div id="nama">
+    <h1 id="logo-teks" class="notranslate">KLINIK PERGIGIAN 13</h1>
+    <div id="nama" class="notranslate">
     <button id="themeToggle">
     🌙 Dark Mode
 </button>
         <?php echo $_SESSION['nama'];?>
         <a href ="logout.php" title="Log Keluar">
-            <img src="images/logout.png" width="35" height ="35">
+            <img src="images/Logout.png" width="35" height ="35">
         </a>
     </div>
 </header>
