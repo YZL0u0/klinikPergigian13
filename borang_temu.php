@@ -95,9 +95,12 @@ input [type=submit]{
                             while ($row =mysqli_fetch_assoc($data)){
                                 echo '<label class="item">';
                                 echo '<input type="checkbox" name="servis[]" 
-                                            value ="'.$row['kod_servis'].'">';
-                                echo '<span>';
-                                echo $row['nama_servis'].'(RM'.$row['harga_servis'].')';
+                                            value ="' . htmlspecialchars($row['kod_servis'], ENT_QUOTES, 'UTF-8') .'">';
+                                echo '<span class="service-name notranslate"
+                                        translate="no"
+                                        data-code="' . htmlspecialchars($row['kod_servis'], ENT_QUOTES, 'UTF-8') . '"
+                                        data-original="' . htmlspecialchars($row['nama_servis'], ENT_QUOTES, 'UTF-8') . '">';
+                                echo htmlspecialchars($row['nama_servis'], ENT_QUOTES, 'UTF-8');
                                 echo '</span>';
                                 echo '</label>';
                             }

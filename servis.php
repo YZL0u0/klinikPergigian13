@@ -66,7 +66,11 @@ if (mysqli_num_rows($result)> 0){
     <br>
     <table>
         <tr>
-            <th>Bil</th>
+            <th class="bil-header notranslate"
+            translate="no"
+            data-ms="Bil"
+            data-en="No."
+            data-zh="序号">Bil</th>
             <th>Kod</th>
             <th>Nama</th>
             <th>Harga</th>
@@ -83,8 +87,11 @@ if (mysqli_num_rows($result)> 0){
             <tr>
                 <td><?php echo $bil."."; ?></td>
                 <td><?php echo $row['kod_servis']; ?></td>
-                <td><?php echo $row['nama_servis']; ?></td>
-                <td><?php echo "RM ".$row['harga_servis']; ?></td>
+                <td class="service-name notranslate" translate="no" data-code="<?php echo $row['kod_servis']; ?>"
+                 data-original="<?php echo htmlspecialchars($row['nama_servis'], ENT_QUOTES, 'UTF-8'); ?>">
+                    <?php echo htmlspecialchars($row['nama_servis']); ?>
+                </td>
+                <td class="notranslate"><?php echo "RM ".$row['harga_servis']; ?></td>
                 <?php
                 if ($_SESSION['peranan']=="admin"){
                     ?>
@@ -106,6 +113,8 @@ if (mysqli_num_rows($result)> 0){
 }
 else {echo "<center>Tiada rekod</center>";}
 ?>
+
+
 </main>
 
 <?php
@@ -123,3 +132,5 @@ if ($_SESSION['peranan']=="admin"){
 include "footer.php";
 mysqli_close($conn );
 ?>
+
+ 

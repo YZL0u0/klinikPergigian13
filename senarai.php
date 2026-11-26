@@ -64,8 +64,12 @@ include "db_conn.php";
             janjitemu.masa_temu,
             janjitemu.no_telefon,
             pesakit.nama_pesakit,
-            GROUP_CONCAT(servis.harga_servis SEPARATOR '<br>') AS harga_servis,
-            GROUP_CONCAT(servis.nama_servis SEPARATOR '<br>') AS servis
+            GROUP_CONCAT(servis.harga_servis SEPARATOR '<br>') AS harga,
+            GROUP_CONCAT(
+                CONCAT(servis.kod_servis, '::', servis.nama_servis)
+                ORDER BY servis.kod_servis
+                SEPARATOR '|||'
+            ) AS servis_items
           FROM janjitemu
           JOIN janjitemu_servis
                 ON janjitemu.no_janjitemu = janjitemu_servis.no_janjitemu
@@ -119,8 +123,25 @@ include "db_conn.php";
                     <tr>
                         <td><?php echo $no_janjitemu; ?></td>
                         <td><?php echo $row['tarikh_temu']." ".$row['masa_temu']; ?></td>
-                        <td><?php echo $row['servis']; ?></td>
-                        <td><?php echo $row['harga_servis'];?></td>
+                        <td>
+                            <?php
+                                $services = explode('|||', $row['servis_items']);
+                                foreach ($services as $index => $service) {
+                                $parts = explode('::', $service, 2);
+                                $code = $parts[0];
+                                $name = $parts[1] ?? '';
+                                echo '<span class="service-name notranslate"
+                                translate="no"
+                                data-code="' . htmlspecialchars($code, ENT_QUOTES, 'UTF-8') . '"
+                                data-original="' . htmlspecialchars($name, ENT_QUOTES, 'UTF-8') . '">';
+                                echo htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
+                                echo '</span>';
+                                if ($index < count($services) - 1) {
+                                    echo '<br>';
+                                }
+                            }?>
+                        </td>
+                        <td><?php echo $row['harga'];?></td>
 
                         <?php
                         if ($_SESSION['peranan']=="admin"){
@@ -128,7 +149,7 @@ include "db_conn.php";
                         } ?>
                         <td style="text-align: center;">
                             <a href="padam.php?no=<?php echo $row['no_janjitemu']; ?>"
-                            onclick="return confirm('Adakah anda pasti mahu memadam janji temu ini?');">
+                            onclick="return confirmDelete();">
                             <img src='images/delete.png' width='23' height='23' title='Padam'>
                         </a>
                         </td>
